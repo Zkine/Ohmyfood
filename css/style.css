@@ -257,6 +257,36 @@ p {
   box-sizing: border-box;
 }
 
+.pied_de_page {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #353535;
+  color: #ffffff;
+  padding-bottom: 30px;
+  height: 200px;
+}
+.pied_de_page__titre {
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin: 20px 0 0 20px;
+}
+.pied_de_page__titre__para {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.pied_de_page__titre__para__lien {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 0 8px 20px;
+}
+.pied_de_page__titre__para__lien > .fa-solid {
+  font-size: 14px;
+  margin-right: 10px;
+  width: 15px;
+  cursor: pointer;
+}
+
 .header {
   display: flex;
   justify-content: center;

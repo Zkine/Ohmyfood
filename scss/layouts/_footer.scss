@@ -1,0 +1,29 @@
+.pied_de_page {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #353535;
+    color: $quaternaire;
+    padding-bottom: 30px;
+    height: 200px;
+    &__titre {
+        font-size: 1.2rem;
+        font-weight: 100;
+        margin: 20px 0 0 20px;
+        &__para {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            &__lien {
+                text-decoration: none;
+                color: $quaternaire;
+                margin: 0 0 8px 20px;
+            }
+            &__lien> .fa-solid {
+                font-size: 14px;
+                margin-right: 10px;
+                width: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+}

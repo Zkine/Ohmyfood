@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<!-- l'attribut "dir" indique la direction de l'écriture et de la lecture de la langue écrite du site -->
+
+<!-- En-tête de page -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Ohmyfood! est une entreprise de commande de repas en ligne. Notre concept permet aux
+    utilisateurs de composer leur propre menu et réduire leur temps d’attente dans les
+    restaurants car leur menu est préparé à l’avance. Plus de perte de temps à consulter la carte
+    !">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" media="screen and (max-width: 991px) and (max-width: 767px)" href="./css/style.css" />
+    <script src="https://kit.fontawesome.com/f9725270b0.js" crossorigin="anonymous"></script>
+    <title>Ohmyfood</title>
+</head>
+
+
+
+<body>
+    <header class="header">
+        <img src="images/logo/ohmyfood@2x.svg" alt="logo_ohmyfood" class="header__logo_ohmyfood" />
+    </header>
+    <main>
+        <section>
+            <form method="post" action="traitement.php">
+                <p class="recherche">
+                    <input type="search" class="recherche__placeholder" name="rechercher" placeholder="Paris, Belleville" />
+                </p>
+            </form>
+        </section>
+        <section>
+            <article class="contenaire_reservation">
+                <p class="contenaire_reservation__para">Réservez le menu qui vous convient</p>
+                <p class="contenaire_reservation__para__secon">Découvrez des restaurants d'exception, séléctionnés par nos soins.</p>
+                <div class="contenaire_reservation__para__secon__btn">
+                    Explorer nos restaurants
+                </div>
+            </article>
+        </section>
+        <section class="filtre">
+            <p class="filtre__para">Fonctionnement</p>
+            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">1</span><i class="fa-solid fa-mobile-screen-button filtre__para__cadre_filtre__numero_fontawe"></i>Choisissez un restaurant</div>
+            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">2</span><i class="fa-solid fa-list-ul filtre__para__cadre_filtre__numero_fontawe"></i>Composez votre menu</div>
+            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">3</span><i class="fa-solid fa-store filtre__para__cadre_filtre__numero_fontawe"></i>Déguster au restaurant</div>
+        </section>
+        <section class="contenaire_restaurant">
+            <p class="contenaire_restaurant__titre">Restaurants</p>
+            <div class="contenaire_restaurant__article">
+                <article class="article_restaurant">
+                    <a href="#">
+                        <figure>
+                            <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
+                                alt="La palette du goût" class="article_restaurant__img" />
+                            <figcaption class="article_restaurant__img__nom">La palette du goût</figcaption>
+                        </figure>    
+                        <p class="article_restaurant__img__nom__lieu">Ménilmontant</p>
+                        <i class="fa-regular fa-heart article_restaurant__img__nom__lieu__etoile"></i>
+                        <div class="article_restaurant__img__nom__lieu__etoile__btn">
+                            Nouveau
+                        </div>
+                    </a>
+                </article>
+                <article class="article_restaurant">
+                    <a href="#">
+                        <figure>
+                            <img src="images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
+                                alt="La note enchantée" class="article_restaurant__img" />
+                            <figcaption class="article_restaurant__img__nom">La note enchantée</figcaption>
+                        </figure>    
+                        <p class="article_restaurant__img__nom__lieu">Charonne</p>
+                        <i class="fa-regular fa-heart article_restaurant__img__nom__lieu__etoile"></i>
+                        <div class="article_restaurant__img__nom__lieu__etoile__btn">
+                            Nouveau
+                        </div>
+                    </a>
+                </article>
+                <article class="article_restaurant">
+                    <a href="#">
+                        <figure>
+                            <img src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
+                                alt="À la Française" class="article_restaurant__img" />
+                            <figcaption class="article_restaurant__img__nom">À la Française</figcaption>
+                        </figure>    
+                        <p class="article_restaurant__img__nom__lieu">Cité Rouge</p>
+                        <i class="fa-regular fa-heart article_restaurant__img__nom__lieu__etoile"></i>
+                    </a>
+                </article>
+                <article class="article_restaurant">
+                    <a href="#">
+                        <figure>
+                            <img src="images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
+                                alt="Le délice des sens" class="article_restaurant__img" />
+                            <figcaption class="article_restaurant__img__nom">Le délice des sens</figcaption>
+                        </figure> 
+                        <p class="article_restaurant__img__nom__lieu">Folie-Méricourt</p>
+                        <i class="fa-regular fa-heart article_restaurant__img__nom__lieu__etoile"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

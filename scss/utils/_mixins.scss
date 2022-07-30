@@ -1,0 +1,7 @@
+@mixin fontawesome {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    font-family: "Font Awesome 6 Free";
+  }

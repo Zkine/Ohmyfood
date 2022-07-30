@@ -303,6 +303,7 @@ p {
     align-items: center;
     margin: 0;
     width: 100%;
+    position: relative;
   }
   .recherche::before {
     display: inline-block;
@@ -398,7 +399,7 @@ p {
     padding: 5px 5px;
     align-self: center;
     position: absolute;
-    right: 92%;
+    left: 12px;
   }
   .filtre__para__cadre_filtre__numero_fontawe {
     margin-left: 50px;
@@ -455,7 +456,7 @@ p {
   }
   .article_restaurant__img__nom__lieu__etoile {
     position: absolute;
-    left: 270px;
+    right: 30px;
     bottom: 30px;
     font-size: 25px;
   }
@@ -463,8 +464,8 @@ p {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgb(86, 206, 86);
-    color: green;
+    background: rgb(120, 212, 205);
+    color: rgb(35, 150, 35);
     padding: 0.3rem 0.7rem;
     font-size: 0.8rem;
   }

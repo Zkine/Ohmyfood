@@ -1,8 +1,20 @@
 .header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
     &__logo_ohmyfood {
         width: 180px;
         margin: 20px 0 10px 0;
+        &__fleche {
+            position: absolute;
+            left: 20px;
+            font-size: 20px;
+            bottom: 18px;
+        }
     }
+}
+
+.header a:active {
+    color: black;
 }

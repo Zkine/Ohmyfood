@@ -1,5 +1,8 @@
 @media screen and (max-width: 767px) {
 
+    .header {
+        box-shadow: 0 0 0.5rem #bbbbbb;
+    }
     .recherche {
         display: flex;
         justify-content: center;
@@ -7,21 +10,21 @@
         margin: 0;
         width: 100%;
         position: relative;
+        z-index: -1;
         &::before {
             @include fontawesome;
             content: "\f3c5";
             margin-right: 160px;
             position: absolute;
-            z-index: 2;
+            z-index: 1;
         }
         &__placeholder {
             width: 100%;
             height: 48px;
             display: flex;
             text-align: center;
-            background-color: $quinternaire;
+            background-color: $gris_fonce;
             border: none;
-            box-shadow: inset 0 1px rgb(0 0 0 / 20%);
             position: relative;
 
             &::placeholder {
@@ -39,7 +42,7 @@
         width: 100%;
         height: 280px;
         padding: 0 20px 30px 20px;
-        background-color: $sexternaire;
+        background-color: $gris_claire;
         &__para {
             font-weight: 900;
             margin-top: 0px;
@@ -49,15 +52,17 @@
             &__secon {
                 margin: 0 0 25px 0;
                 font-size: 1rem;
+                color: #353535;
                 &__btn {
-                    background: $secondaire;
-                    color: $quaternaire;
+                    background: $rose;
+                    color: $blanc;
                     cursor: pointer;
                     padding: 1rem 1rem;
                     border-radius: 10rem;
-                    font-size: 1rem;
-                    width: 230px;
+                    font-size: 0.9rem;
+                    width: 210px;
                     align-self: center;
+                    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
                 }
             }
         }
@@ -79,7 +84,7 @@
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
-                background-color: $sexternaire;
+                background-color: $gris_claire;
                 cursor: pointer;
                 border-radius: 1.5rem;
                 font-size: 1rem;
@@ -88,35 +93,32 @@
                 padding-right: 100px;
                 white-space: pre;
                 font-weight: 600;
+                box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
                 &__numero {
                     width: 20px;
                     text-align: center;
-                    background-color: $primaire;
+                    background-color: $violet;
                     border-radius: 100%;
-                    color: $sexternaire;
+                    color: #fcfcfc;
                     font-size: 0.8rem;
                     padding: 5px 5px;
                     align-self: center;
                     position: absolute;
                     left: 12px;
-                    &_fontawe {
+                    &__fontawe {
                         margin-left: 50px;
                         margin-right: 25px;
-                        text-align: center;
+                        color: gray;
                     }
                 }
             }
         }
     }
 
-    .filtre__para__numero__cadre_filtre > .fa-solid {
-        color: #414141d7;
-    }
-
     .contenaire_restaurant {
         display: flex;
         flex-flow: column wrap;
-        background-color: $sexternaire;
+        background-color: $gris_claire;
         padding: 0 20px 0 20px;
         width: 100%;
         height: auto;
@@ -139,8 +141,9 @@
         position: relative;
         width: 100%;
         height: 255px;
-        background-color: $quaternaire;
+        background-color: $blanc;
         border-radius: 1rem;
+        box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
         &__img {
             object-fit: cover;
             border-radius: 1rem 1rem 0 0;
@@ -164,8 +167,8 @@
                             position: absolute;
                             top: 10px;
                             right: 10px;
-                            background:rgb(120, 212, 205);
-                            color: rgb(35, 150, 35);
+                            background: $vert;
+                            color: #008766;
                             padding: 0.3rem 0.7rem;
                             font-size: 0.8rem;
                         }

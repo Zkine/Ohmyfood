@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column nowrap;
     background-color: #353535;
-    color: $quaternaire;
+    color: $blanc;
     padding-bottom: 30px;
     height: 200px;
     &__titre {
@@ -15,7 +15,7 @@
             justify-content: space-between;
             &__lien {
                 text-decoration: none;
-                color: $quaternaire;
+                color: $blanc;
                 margin: 0 0 8px 20px;
             }
             &__lien> .fa-solid {

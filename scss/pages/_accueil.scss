@@ -54,7 +54,7 @@
                 font-size: 1rem;
                 color: #353535;
                 &__btn {
-                    background: $rose;
+                    background: linear-gradient(to bottom right,$rose, $violet);
                     color: $blanc;
                     cursor: pointer;
                     padding: 1rem 1rem;

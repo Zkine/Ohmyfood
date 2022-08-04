@@ -1,6 +1,6 @@
 @media screen and (max-width: 767px) {
-    
-    .contenaire {
+
+    .body {
         background-color: $gris_claire;
     }
     
@@ -31,6 +31,24 @@
                 right: 40px;
                 bottom: 23px;
                 font-size: 25px;
+                &:active {
+                    &::after{
+                        opacity: 1;
+                    }
+                }
+            }
+            &__coeur::after {
+                @include fontawesome; 
+                background: content-box linear-gradient(0deg,$violet, $rose);
+                background-size: 100%;
+                font: var(--fa-font-regular);
+                content: "\f004";
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;  
+                left: 0;
             }
         }
     }
@@ -88,7 +106,7 @@
         margin-top: 30px;
         margin-bottom: 20px;
         &__btn {
-            background-color: $rose;
+            background: linear-gradient(to bottom right,$rose, $violet);
             color: $blanc;
             width: 45%;
             margin: auto;

@@ -257,6 +257,16 @@ p {
   box-sizing: border-box;
 }
 
+@keyframes animation_page_menu {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 .pied_de_page {
   display: flex;
   flex-flow: column nowrap;
@@ -269,6 +279,7 @@ p {
   font-size: 1.2rem;
   font-weight: 100;
   margin: 20px 0 0 20px;
+  cursor: default;
 }
 .pied_de_page__titre__para {
   display: flex;
@@ -302,6 +313,7 @@ p {
   left: 20px;
   font-size: 20px;
   bottom: 18px;
+  color: black;
 }
 
 .header a:active {
@@ -319,7 +331,6 @@ p {
     margin: 0;
     width: 100%;
     position: relative;
-    z-index: -1;
   }
   .recherche::before {
     display: inline-block;
@@ -361,11 +372,13 @@ p {
     width: 80%;
     align-self: center;
     font-size: 1.5rem;
+    cursor: default;
   }
   .contenaire_reservation__para__secon {
     margin: 0 0 25px 0;
     font-size: 1rem;
     color: #353535;
+    cursor: default;
   }
   .contenaire_reservation__para__secon__btn {
     background: linear-gradient(to bottom right, #FF79DA, #9356DC);
@@ -378,6 +391,10 @@ p {
     align-self: center;
     box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.35);
   }
+  .contenaire_reservation__para__secon__btn:hover {
+    background: linear-gradient(to bottom right, #ff93e1, #a16be0);
+    box-shadow: 1px 5px 8px 1px rgba(0, 0, 0, 0.35);
+  }
   .filtre {
     display: flex;
     justify-content: space-evenly;
@@ -388,6 +405,7 @@ p {
     margin-bottom: 42px;
   }
   .filtre__para {
+    cursor: default;
     font-size: 1.5rem;
     font-weight: 900;
     margin-bottom: 10px;
@@ -406,6 +424,12 @@ p {
     white-space: pre;
     font-weight: 600;
     box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+  }
+  .filtre__para__cadre_filtre:hover {
+    background-color: #f2eafb;
+  }
+  .filtre__para__cadre_filtre:hover > .fa-solid {
+    color: #9356DC;
   }
   .filtre__para__cadre_filtre__numero {
     width: 20px;
@@ -437,6 +461,7 @@ p {
     font-weight: 900;
     margin-top: 54px;
     margin-bottom: 10px;
+    cursor: default;
   }
   .contenaire_restaurant__article {
     display: flex;
@@ -470,13 +495,43 @@ p {
     margin-left: 10px;
     margin-top: 5px;
   }
-  .article_restaurant__img__nom__lieu__etoile {
+  .article_restaurant__img__nom__lieu__checkbox {
+    display: none;
+  }
+  .article_restaurant__img__nom__lieu__checkbox__label {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .article_restaurant__img__nom__lieu__checkbox__label::after {
+    background: linear-gradient(180deg, #9356DC, #FF79DA);
+    content: "\f004";
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    font-family: "Font Awesome 6 Free";
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font: var(--fa-font-solid);
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    font-size: 25px;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 400ms ease-out;
+  }
+  .article_restaurant__img__nom__lieu__checkbox__label--coeur {
     position: absolute;
     right: 30px;
     bottom: 30px;
     font-size: 25px;
   }
-  .article_restaurant__img__nom__lieu__etoile__btn {
+  .article_restaurant__img__nom__lieu__checkbox__label--coeur__btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -484,6 +539,9 @@ p {
     color: #008766;
     padding: 0.3rem 0.7rem;
     font-size: 0.8rem;
+  }
+  .article_restaurant__img__nom__lieu__checkbox:checked + .article_restaurant__img__nom__lieu__checkbox__label::after {
+    opacity: 1;
   }
   .article_restaurant a {
     text-decoration: none;
@@ -515,32 +573,47 @@ p {
     margin: 30px 20px 15px 20px;
     font-size: 1.6rem;
     font-weight: 500;
+    cursor: default;
   }
-  .contenaire_titre__h1__coeur {
-    position: absolute;
-    right: 40px;
-    bottom: 23px;
-    font-size: 25px;
+  .contenaire_titre__h1__checkbox {
+    display: none;
   }
-  .contenaire_titre__h1__coeur:active::after {
-    opacity: 1;
+  .contenaire_titre__h1__checkbox__label {
+    display: inline-block;
+    cursor: pointer;
   }
-  .contenaire_titre__h1__coeur::after {
+  .contenaire_titre__h1__checkbox__label::after {
+    background: linear-gradient(180deg, #9356DC, #FF79DA);
+    content: "\f004";
     display: inline-block;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font: var(--fa-font-solid);
     font-family: "Font Awesome 6 Free";
-    background: content-box linear-gradient(0deg, #9356DC, #FF79DA);
-    background-size: 100%;
-    font: var(--fa-font-regular);
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font: var(--fa-font-solid);
     content: "\f004";
-    opacity: 0;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: 40px;
+    bottom: 23px;
+    font-size: 25px;
+    opacity: 0;
+    transition: all 400ms ease-out;
+  }
+  .contenaire_titre__h1__checkbox__label--coeur {
+    position: absolute;
+    right: 40px;
+    bottom: 23px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .contenaire_titre__h1__checkbox:checked + .contenaire_titre__h1__checkbox__label::after {
+    opacity: 1;
   }
   .contenaire_menu {
     display: flex;
@@ -551,6 +624,7 @@ p {
     text-transform: uppercase;
     margin-bottom: 3px;
     margin-left: 20px;
+    cursor: default;
   }
   .contenaire_menu__type__vert {
     background-color: #99E2D0;
@@ -561,30 +635,102 @@ p {
   }
   .contenaire_menu__type__vert__menu {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
+    justify-content: space-between;
     margin: 5px 10px 12px 10px;
     border-radius: 1rem;
     height: 68px;
     background-color: white;
     box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 97%;
+  }
+  .contenaire_menu__type__vert__menu:nth-child(3) {
+    opacity: 0;
+    animation: animation_page_menu 1000ms 0s both;
+  }
+  .contenaire_menu__type__vert__menu:nth-child(4) {
+    opacity: 0;
+    animation: animation_page_menu 1000ms 0.4s both;
+  }
+  .contenaire_menu__type__vert__menu:nth-child(5) {
+    opacity: 0;
+    animation: animation_page_menu 1000ms 0.8s both;
+  }
+  .contenaire_menu__type__vert__menu:nth-child(6) {
+    opacity: 0;
+    animation: animation_page_menu 1000ms 0.8s both;
   }
   .contenaire_menu__type__vert__menu__plat {
     margin: 10px 0 0px 10px;
     font-weight: 900;
     font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .contenaire_menu__type__vert__menu__plat__composition {
-    margin: 5px 0 5px 10px;
+    margin: 5px 0 10px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 30px;
+    width: 75%;
   }
   .contenaire_menu__type__vert__menu__plat__composition__prix {
     font-weight: 900;
-    align-self: flex-start;
-    margin: 5px 20px 0 0;
+    margin: 5px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .contenaire_menu__type__vert__menu::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    font-family: "Font Awesome 6 Free";
+    content: "\f111";
+    background-size: contain;
+    margin: 0;
+    height: 100%;
+    width: 10px;
+    background: #99E2D0;
+    color: white;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 20px;
+    width: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+  }
+  .contenaire_menu__type__vert__menu::after {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    font-family: "Font Awesome 6 Free";
+    content: "\f00c";
+    background-size: contain;
+    height: 100%;
+    color: #99E2D0;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 15px;
+    width: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    align-self: flex-end;
   }
   .composition_prix {
     display: flex;
     justify-content: space-between;
-    height: auto;
+    width: 75%;
   }
   .btn_contenaire {
     display: flex;
@@ -603,6 +749,10 @@ p {
     padding: 1rem 1rem;
     border-radius: 10rem;
     box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.35);
+  }
+  .btn_contenaire__btn:hover {
+    background: linear-gradient(to bottom right, #ff93e1, #a16be0);
+    box-shadow: 1px 5px 8px 1px rgba(0, 0, 0, 0.35);
   }
 }
 

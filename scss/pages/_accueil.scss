@@ -10,7 +10,6 @@
         margin: 0;
         width: 100%;
         position: relative;
-        z-index: -1;
         &::before {
             @include fontawesome;
             content: "\f3c5";
@@ -49,12 +48,14 @@
             width: 80%;
             align-self: center;
             font-size: 1.5rem;
+            cursor: default;
             &__secon {
                 margin: 0 0 25px 0;
                 font-size: 1rem;
                 color: #353535;
+                cursor: default;
                 &__btn {
-                    background: linear-gradient(to bottom right,$rose, $violet);
+                    @include btn;
                     color: $blanc;
                     cursor: pointer;
                     padding: 1rem 1rem;
@@ -63,6 +64,10 @@
                     width: 210px;
                     align-self: center;
                     box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
+                    &:hover {
+                        background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
+                        box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+                    }
                 }
             }
         }
@@ -77,6 +82,7 @@
         padding: 0 20px 0 20px;
         margin-bottom: 42px;
         &__para {
+            cursor: default;
             font-size: 1.5rem;
             font-weight: 900;
             margin-bottom: 10px;
@@ -94,6 +100,12 @@
                 white-space: pre;
                 font-weight: 600;
                 box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+                &:hover {
+                    background-color: lighten($violet, 35%);
+                }
+                &:hover > .fa-solid {
+                    color: $violet;
+                }
                 &__numero {
                     width: 20px;
                     text-align: center;
@@ -127,6 +139,7 @@
             font-weight: 900;
             margin-top: 54px;
             margin-bottom: 10px;
+            cursor: default;
         }
 
         &__article {
@@ -158,19 +171,48 @@
                     width: 50%;
                     margin-left: 10px;
                     margin-top: 5px;
-                    &__etoile {
-                        position: absolute;
-                        right: 30px;
-                        bottom: 30px;
-                        font-size: 25px;
-                        &__btn {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-                            background: $vert;
-                            color: #008766;
-                            padding: 0.3rem 0.7rem;
-                            font-size: 0.8rem;
+                    &__checkbox {
+                        display: none;
+                        &__label { 
+                            display: inline-block; 
+                            cursor: pointer;
+                            &::after {
+                                background: linear-gradient(180deg,$violet, $rose);
+                                content: "\f004";
+                                @include fontawesome; 
+                                background-size: contain;
+                                background-clip: text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                -moz-background-clip: text;
+                                -moz-text-fill-color: transparent;
+                                font: var(--fa-font-solid);
+                                position: absolute;
+                                right: 30px;
+                                bottom: 30px;
+                                font-size: 25px;
+                                opacity: 0;
+                                transform: scale(1.10);
+                                transition: all 400ms ease-out;
+                            }
+                            &--coeur {
+                                position: absolute;
+                                right: 30px;
+                                bottom: 30px;
+                                font-size: 25px;
+                                &__btn {
+                                    position: absolute;
+                                    top: 10px;
+                                    right: 10px;
+                                    background: $vert;
+                                    color: #008766;
+                                    padding: 0.3rem 0.7rem;
+                                    font-size: 0.8rem;
+                                }
+                            }
+                        }
+                        &:checked + &__label::after {
+                            opacity: 1;
                         }
                     }
                 }
@@ -182,7 +224,5 @@
         text-decoration: none;
         color: black;
     }
+
 }
-
-
-

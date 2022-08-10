@@ -3,110 +3,206 @@
     .body {
         background-color: $gris_claire;
     }
-    
+
     .img_principale {
         width: 100%;
         height: 250px;
         object-fit: cover;
     }
-    
+
     .corp_page {
         position: relative;
         bottom: 60px;
         margin-bottom: 0px;
     }
-    
-    .contenaire_titre{
+
+    .contenaire_titre {
         display: flex;
         flex-flow: column wrap;
         border-radius: 2.5rem 2.5rem 0 0;
         background-color: $gris_claire;
         position: relative;
+
         &__h1 {
             margin: 30px 20px 15px 20px;
             font-size: 1.6rem;
             font-weight: 500;
-            &__coeur {
-                position: absolute;
-                right: 40px;
-                bottom: 23px;
-                font-size: 25px;
-                &:active {
-                    &::after{
-                        opacity: 1;
+            cursor: default;
+
+            &__checkbox {
+                display: none;
+
+                &__label {
+                    display: inline-block;
+                    cursor: pointer;
+
+                    &::after {
+                        background: linear-gradient(180deg, $violet, $rose);
+                        content: "\f004";
+                        @include fontawesome;
+                        background-size: contain;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        -moz-background-clip: text;
+                        -moz-text-fill-color: transparent;
+                        font: var(--fa-font-solid);
+                        content: "\f004";
+                        position: absolute;
+                        right: 40px;
+                        bottom: 23px;
+                        font-size: 25px;
+                        opacity: 0;
+                        transition: all 400ms ease-out;
+                    }
+
+                    &--coeur {
+                        position: absolute;
+                        right: 40px;
+                        bottom: 23px;
+                        font-size: 25px;
+                        cursor: pointer;
                     }
                 }
-            }
-            &__coeur::after {
-                @include fontawesome; 
-                background: content-box linear-gradient(0deg,$violet, $rose);
-                background-size: 100%;
-                font: var(--fa-font-regular);
-                content: "\f004";
-                opacity: 0;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;  
-                left: 0;
+
+                &:checked+&__label::after {
+                    opacity: 1;
+                }
+
             }
         }
     }
-    
+
     .contenaire_menu {
         display: flex;
         flex-flow: column nowrap;
         margin-top: 8px;
+
         &__type {
             text-transform: uppercase;
             margin-bottom: 3px;
             margin-left: 20px;
+            cursor: default;
+
             &__vert {
                 background-color: $vert;
                 width: 40px;
                 height: 3px;
                 margin-left: 20px;
                 margin-bottom: 10px;
+
                 &__menu {
                     display: flex;
-                    flex-flow: column nowrap;
+                    flex-flow: column wrap;
+                    justify-content: space-between;
                     margin: 5px 10px 12px 10px;
                     border-radius: 1rem;
                     height: 68px;
                     background-color: white;
                     box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                    width: 97%;
+
+                    &:nth-child(3) {
+                        opacity: 0;
+                        animation: animation_page_menu 1000ms 0s both;
+                    }
+
+                    &:nth-child(4) {
+                        opacity: 0;
+                        animation: animation_page_menu 1000ms .4s both;
+                    }
+
+                    &:nth-child(5) {
+                        opacity: 0;
+                        animation: animation_page_menu 1000ms .8s both;
+                    }
+
+                    &:nth-child(6) {
+                        opacity: 0;
+                        animation: animation_page_menu 1000ms .8s both;
+                    }
+
                     &__plat {
                         margin: 10px 0 0px 10px;
                         font-weight: 900;
                         font-size: 1.2rem;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
                         &__composition {
-                            margin: 5px 0 5px 10px;
+                            margin: 5px 0 10px 10px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            margin-right: 30px;
+                            width: 75%;
+
                             &__prix {
                                 font-weight: 900;
-                                align-self: flex-start;
-                                margin: 5px 20px 0 0;
+                                margin: 5px 0 0 0;
+                                width: 100%;
+                                display: flex;
+                                flex-direction: row-reverse; 
                             }
                         }
                     }
-    
+                    &::before {
+                        @include fontawesome;
+                        content: "\f111";
+                        background-size: contain;
+                        margin: 0;
+                        height: 100%;
+                        width: 10px;
+                        background: $vert;
+                        color: white;
+                        border-radius: 0 1rem 1rem 0; 
+                        font-size: 20px;
+                        width: 60px;
+                        align-items: center;
+                        display: flex;
+                        justify-content: center;
+                        position: absolute;
+                        right: 0;
+                    }
+
+                    &::after {
+                        @include fontawesome;
+                        content: "\f00c";
+                        background-size: contain;
+                        height: 100%;
+                        color: $vert;
+                        border-radius: 0 1rem 1rem 0; 
+                        font-size: 15px;
+                        width: 60px;
+                        align-items: center;
+                        display: flex;
+                        justify-content: center;
+                        z-index: 1;       
+                        align-self: flex-end;      
+                    }
                 }
             }
         }
     }
-    
+
     .composition_prix {
         display: flex;
         justify-content: space-between;
-        height: auto;
+        width: 75%;
     }
-    
+
     .btn_contenaire {
         display: flex;
         width: 100%;
         margin-top: 30px;
         margin-bottom: 20px;
+
         &__btn {
-            background: linear-gradient(to bottom right,$rose, $violet);
+            background: linear-gradient(to bottom right, $rose, $violet);
             color: $blanc;
             width: 45%;
             margin: auto;
@@ -116,8 +212,11 @@
             padding: 1rem 1rem;
             border-radius: 10rem;
             box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
+            &:hover {
+                background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
+                box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+            }
         }
-    
+
     }
 }
-

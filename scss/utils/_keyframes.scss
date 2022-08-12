@@ -9,3 +9,13 @@
             opacity: 1;
         }
 }
+
+@keyframes animation_selection_plat {
+    0% {
+        transform: translatex(61px);
+    }
+
+    100% {
+        transform: translatex(0px);
+    }
+}

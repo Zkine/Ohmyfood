@@ -64,7 +64,7 @@
                     width: 210px;
                     align-self: center;
                     box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
-                    &:hover {
+                    &:hover, &:active{
                         background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
                         box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
                     }

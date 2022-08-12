@@ -77,6 +77,9 @@
         display: flex;
         flex-flow: column nowrap;
         margin-top: 8px;
+        width: 767px;
+        max-width: 100%;
+        padding: 0 10px;
 
         &__type {
             text-transform: uppercase;
@@ -84,115 +87,134 @@
             margin-left: 20px;
             cursor: default;
 
-            &__vert {
+            &--soulignement_vert {
                 background-color: $vert;
                 width: 40px;
                 height: 3px;
                 margin-left: 20px;
                 margin-bottom: 10px;
 
-                &__menu {
-                    display: flex;
-                    flex-flow: column wrap;
-                    justify-content: space-between;
-                    margin: 5px 10px 12px 10px;
-                    border-radius: 1rem;
-                    height: 68px;
-                    background-color: white;
-                    box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
-                    cursor: pointer;
-                    position: relative;
+               }
+            }
+        }
+        
+
+    .menu {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 5px 0 12px 0;
+        border-radius: 1rem;
+        height: 68px;
+        background-color: white;
+        box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+        cursor: pointer;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+
+        &:nth-child(3) {
+            opacity: 0;
+            animation: animation_page_menu 1000ms 0ms both;
+        }
+
+        &:nth-child(4) {
+            opacity: 0;
+            animation: animation_page_menu 1000ms 400ms both;
+        }
+
+        &:nth-child(5) {
+            opacity: 0;
+            animation: animation_page_menu 1000ms 800ms both;
+        }
+
+        &:nth-child(6) {
+            opacity: 0;
+            animation: animation_page_menu 1000ms 1200ms both;
+        }
+
+        &__plat {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 100%;
+            max-width: 300px;
+
+            &__type {
+                margin: 10px 0 0px 10px;
+                font-weight: 900;
+                font-size: 1.2rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+    
+                &__composition {
+                    margin: 5px 0 10px 10px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                     overflow: hidden;
-                    width: 97%;
 
-                    &:nth-child(3) {
-                        opacity: 0;
-                        animation: animation_page_menu 1000ms 0s both;
-                    }
+                    &__anime {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+                        width: 200px;
 
-                    &:nth-child(4) {
-                        opacity: 0;
-                        animation: animation_page_menu 1000ms .4s both;
-                    }
+                        &__prix {
+                            font-weight: 900;
+                            margin: 0;
+                            align-self: end;
+                            margin: 0 10px 10px 0;
 
-                    &:nth-child(5) {
-                        opacity: 0;
-                        animation: animation_page_menu 1000ms .8s both;
-                    }
-
-                    &:nth-child(6) {
-                        opacity: 0;
-                        animation: animation_page_menu 1000ms .8s both;
-                    }
-
-                    &__plat {
-                        margin: 10px 0 0px 10px;
-                        font-weight: 900;
-                        font-size: 1.2rem;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-
-                        &__composition {
-                            margin: 5px 0 10px 10px;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                            overflow: hidden;
-                            margin-right: 30px;
-                            width: 75%;
-
-                            &__prix {
-                                font-weight: 900;
-                                margin: 5px 0 0 0;
+                            &__checkbox {
+                                position: absolute;
                                 width: 100%;
-                                display: flex;
-                                flex-direction: row-reverse; 
+                                height: 68px;
+                                opacity: 0;
+
+                                &--check {
+                                    height: 68px;
+                                    background-color: $vert;
+                                    border-radius: 0 1rem 1rem 0;
+                                    display: flex;
+                                    width: 60px;
+                                    margin-right: -60px;
+                                    transition: all 500ms ease-in-out;
+            
+                                    & > .fa-solid  {
+                                        color: $vert;
+                                        background-color: $blanc;
+                                        border-radius: 50%;
+                                        padding: 3px;
+                                        margin: auto;
+                                        font-size: 13px;
+                                        transition: all 500ms ease-in-out;
+                                    }
+                                }
+
+                                &:hover + &--check {
+                                    transition: margin 500ms ease-in-out;
+                                    margin: 0;
+
+                                    & > .fa-solid {
+                                        transform: rotate(360deg);
+                                    }
+                                }
+
+                                &:checked + &--check {
+                                    transition: margin 500ms ease-in-out;
+                                    margin: 0;
+
+                                    & > .fa-solid {
+                                        transform: rotate(360deg);
+                                    }
+                                }
                             }
                         }
-                    }
-                    &::before {
-                        @include fontawesome;
-                        content: "\f111";
-                        background-size: contain;
-                        margin: 0;
-                        height: 100%;
-                        width: 10px;
-                        background: $vert;
-                        color: white;
-                        border-radius: 0 1rem 1rem 0; 
-                        font-size: 20px;
-                        width: 60px;
-                        align-items: center;
-                        display: flex;
-                        justify-content: center;
-                        position: absolute;
-                        right: 0;
-                    }
-
-                    &::after {
-                        @include fontawesome;
-                        content: "\f00c";
-                        background-size: contain;
-                        height: 100%;
-                        color: $vert;
-                        border-radius: 0 1rem 1rem 0; 
-                        font-size: 15px;
-                        width: 60px;
-                        align-items: center;
-                        display: flex;
-                        justify-content: center;
-                        z-index: 1;       
-                        align-self: flex-end;      
                     }
                 }
             }
         }
-    }
-
-    .composition_prix {
-        display: flex;
-        justify-content: space-between;
-        width: 75%;
     }
 
     .btn_contenaire {
@@ -217,6 +239,5 @@
                 box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
             }
         }
-
     }
 }

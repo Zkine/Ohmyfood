@@ -1,213 +1,217 @@
-@media screen and (max-width: 767px) {
+.body {
+    background-color: $gris_claire;
+}
 
-    .body {
-        background-color: $gris_claire;
-    }
+.img_principale {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
 
-    .img_principale {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-    }
+.corp_page {
+    position: relative;
+    bottom: 60px;
+    margin-bottom: 0px;
+}
 
-    .corp_page {
-        position: relative;
-        bottom: 60px;
-        margin-bottom: 0px;
-    }
+.contenaire_titre {
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 2.5rem 2.5rem 0 0;
+    background-color: $gris_claire;
+    position: relative;
 
-    .contenaire_titre {
-        display: flex;
-        flex-flow: column wrap;
-        border-radius: 2.5rem 2.5rem 0 0;
-        background-color: $gris_claire;
-        position: relative;
+    &__h1 {
+        margin: 30px 20px 30px 20px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        cursor: default;
+        align-self: center;
 
-        &__h1 {
-            margin: 30px 20px 15px 20px;
-            font-size: 1.6rem;
-            font-weight: 500;
-            cursor: default;
+        &__checkbox {
+            display: none;
 
-            &__checkbox {
-                display: none;
+            &__label {
+                display: inline-block;
+                cursor: pointer;
 
-                &__label {
-                    display: inline-block;
+                &::after {
+                    background: linear-gradient(180deg, $violet, $rose);
+                    content: "\f004";
+                    @include fontawesome;
+                    background-size: contain;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -moz-background-clip: text;
+                    -moz-text-fill-color: transparent;
+                    font: var(--fa-font-solid);
+                    content: "\f004";
+                    position: absolute;
+                    right: 50%;
+                    bottom: 0;
+                    font-size: 25px;
+                    opacity: 0;
+                    transition: opacity 400ms ease-out;
+                }
+
+                &--coeur {
+                    position: absolute;
+                    font-size: 25px;
+                    right: 50%;
+                    bottom: 0;
                     cursor: pointer;
-
-                    &::after {
-                        background: linear-gradient(180deg, $violet, $rose);
-                        content: "\f004";
-                        @include fontawesome;
-                        background-size: contain;
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        -moz-background-clip: text;
-                        -moz-text-fill-color: transparent;
-                        font: var(--fa-font-solid);
-                        content: "\f004";
-                        position: absolute;
-                        right: 40px;
-                        bottom: 23px;
-                        font-size: 25px;
-                        opacity: 0;
-                        transition: all 400ms ease-out;
-                    }
-
-                    &--coeur {
-                        position: absolute;
-                        right: 40px;
-                        bottom: 23px;
-                        font-size: 25px;
-                        cursor: pointer;
-                    }
                 }
-
-                &:checked+&__label::after {
-                    opacity: 1;
-                }
-
             }
+
+            &:checked + &__label::after {
+                opacity: 1;
+            }
+
         }
     }
+}
 
-    .contenaire_menu {
+.contenaire {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    &__menu {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 8px;
+    padding: 0 10px;
+    width: 24.70%;
+
+    &__type {
+        text-transform: uppercase;
+        margin-bottom: 3px;
+        margin-left: 20px;
+        cursor: default;
+        width: 100%;
+
+        &--soulignement_vert {
+            background-color: $vert;
+            width: 40px;
+            height: 3px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+
+           }
+        }
+    }
+}
+
+.la_carte {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 0 10px;
+    max-width: 100%;
+}
+
+.menu {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 5px 0 12px 0;
+    border-radius: 1rem;
+    width: 450px;
+    height: auto;
+    background-color: white;
+    box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+
+    &:nth-child(1) {
+        opacity: 0;
+        animation: animation_page_menu 1000ms 0ms both;
+    }
+
+    &:nth-child(2) {
+        opacity: 0;
+        animation: animation_page_menu 1000ms 400ms both;
+    }
+
+    &:nth-child(3) {
+        opacity: 0;
+        animation: animation_page_menu 1000ms 800ms both;
+    }
+
+    &:nth-child(4) {
+        opacity: 0;
+        animation: animation_page_menu 1000ms 1200ms both;
+    }
+
+    &__plat {
         display: flex;
         flex-flow: column nowrap;
-        margin-top: 8px;
-        width: 767px;
-        max-width: 100%;
-        padding: 0 10px;
+        width: 100%;
+        min-width: 120px;
 
         &__type {
-            text-transform: uppercase;
-            margin-bottom: 3px;
-            margin-left: 20px;
-            cursor: default;
+            margin: 10px 0 0px 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
 
-            &--soulignement_vert {
-                background-color: $vert;
-                width: 40px;
-                height: 3px;
-                margin-left: 20px;
-                margin-bottom: 10px;
+            &__composition {
+                margin: 5px 0 10px 10px;
+                font-size: 1rem;
+                font-weight: 300;
 
-               }
-            }
-        }
+                &__anime {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    width: 200px;
+
+                    &__prix {
+                        font-weight: 900; 
+                        align-self: end;
+                        margin: 0 10px 10px 0;
+                        transform: translateX(40px);
+                        transition: transform 800ms ease-in-out;
+
+                        &__checkbox {
+                            position: absolute;
+                            width: 100%;
+                            height: 68px;
+                            opacity: 0;
+                            cursor: pointer;
+
+                            &--check {
+                                height: 100%;
+                                background-color: $vert;
+                                border-radius: 0 1rem 1rem 0;
+                                display: flex;
+                                width: 60px;
+                                transition: transform 800ms ease-in-out;
+                                transform: translateX(60px);
         
-
-    .menu {
-        display: flex;
-        flex-flow: row nowrap;
-        margin: 5px 0 12px 0;
-        border-radius: 1rem;
-        height: 68px;
-        background-color: white;
-        box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
-        cursor: pointer;
-        overflow: hidden;
-        width: 100%;
-        max-width: 100%;
-        position: relative;
-
-        &:nth-child(3) {
-            opacity: 0;
-            animation: animation_page_menu 1000ms 0ms both;
-        }
-
-        &:nth-child(4) {
-            opacity: 0;
-            animation: animation_page_menu 1000ms 400ms both;
-        }
-
-        &:nth-child(5) {
-            opacity: 0;
-            animation: animation_page_menu 1000ms 800ms both;
-        }
-
-        &:nth-child(6) {
-            opacity: 0;
-            animation: animation_page_menu 1000ms 1200ms both;
-        }
-
-        &__plat {
-            display: flex;
-            flex-flow: column nowrap;
-            width: 100%;
-            max-width: 300px;
-
-            &__type {
-                margin: 10px 0 0px 10px;
-                font-weight: 900;
-                font-size: 1.2rem;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-    
-                &__composition {
-                    margin: 5px 0 10px 10px;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-
-                    &__anime {
-                        display: flex;
-                        flex-flow: row nowrap;
-                        justify-content: flex-end;
-                        align-items: flex-end;
-                        width: 200px;
-
-                        &__prix {
-                            font-weight: 900;
-                            margin: 0;
-                            align-self: end;
-                            margin: 0 10px 10px 0;
-
-                            &__checkbox {
-                                position: absolute;
-                                width: 100%;
-                                height: 68px;
-                                opacity: 0;
-
-                                &--check {
-                                    height: 68px;
-                                    background-color: $vert;
-                                    border-radius: 0 1rem 1rem 0;
-                                    display: flex;
-                                    width: 60px;
-                                    margin-right: -60px;
-                                    transition: all 500ms ease-in-out;
-            
-                                    & > .fa-solid  {
-                                        color: $vert;
-                                        background-color: $blanc;
-                                        border-radius: 50%;
-                                        padding: 3px;
-                                        margin: auto;
-                                        font-size: 13px;
-                                        transition: all 500ms ease-in-out;
-                                    }
+                                & > .fa-solid  {
+                                    color: $vert;
+                                    background-color: $blanc;
+                                    border-radius: 50%;
+                                    padding: 3px;
+                                    margin: auto;
+                                    font-size: 13px;
+                                    transition: transform 800ms ease-in-out;
                                 }
+                            }
 
-                                &:hover + &--check {
-                                    transition: margin 500ms ease-in-out;
-                                    margin: 0;
+                            &:hover + &--check {
+                                transform: translateX(0px);
 
-                                    & > .fa-solid {
-                                        transform: rotate(360deg);
-                                    }
+                                & > .fa-solid {
+                                    transform: rotate(360deg);
                                 }
+                            }
 
-                                &:checked + &--check {
-                                    transition: margin 500ms ease-in-out;
-                                    margin: 0;
+                            &:checked + &--check {
+                                transform: translateX(0px);
 
-                                    & > .fa-solid {
-                                        transform: rotate(360deg);
-                                    }
+                                & > .fa-solid {
+                                    transform: rotate(360deg);
                                 }
                             }
                         }
@@ -216,28 +220,104 @@
             }
         }
     }
+}
 
-    .btn_contenaire {
-        display: flex;
-        width: 100%;
-        margin-top: 30px;
-        margin-bottom: 20px;
+.btn_contenaire {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
 
-        &__btn {
-            background: linear-gradient(to bottom right, $rose, $violet);
-            color: $blanc;
-            width: 45%;
-            margin: auto;
-            text-align: center;
-            height: 50px;
-            cursor: pointer;
-            padding: 1rem 1rem;
-            border-radius: 10rem;
-            box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
-            &:hover {
-                background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
-                box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+    &__btn {
+        @include btn;
+        margin: auto;
+        width: 230px;
+        font-size: 1rem;
+        &:hover {
+            background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
+            box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+        }
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+
+    .contenaire_titre {
+
+        &__h1 {
+            font-size: 1.6rem;
+            align-self: start;
+
+            &__checkbox {
+
+                &__label {
+
+                    &::after {
+                        right: 40px;
+                        bottom: 23px;
+                    }
+
+                    &--coeur {
+                        right: 40px;
+                        bottom: 23px;
+                    }
+                }
             }
         }
+    }
+
+    .contenaire {
+        flex-flow: column nowrap;
+        justify-content: none;
+        &__menu {
+        max-width: 100%;
+        width: auto;
+        }
+    }
+
+    .la_carte {
+        width: 991px;
+        max-width: 100%;
+    }
+
+    .menu {
+        width: 100%;
+        max-width: 991px;
+        height: 68px;
+
+        &__plat {
+
+            &__type {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+    
+                &__composition {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
+    .btn_contenaire {
+
+        &__btn {
+            width: 180px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .la_carte {
+        width: 767px;
+        max-width: 100%;
+    }
+
+    .menu {
+        max-width: 767px;
     }
 }

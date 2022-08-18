@@ -1,6 +1,8 @@
 .pied_de_page {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     background-color: #353535;
     color: $blanc;
     padding-bottom: 30px;
@@ -8,22 +10,61 @@
     &__titre {
         font-size: 1.2rem;
         font-weight: 100;
-        margin: 20px 0 0 20px;
         cursor: default;
         &__para {
+            width: 600px;
             display: flex;
-            flex-flow: column nowrap;
+            flex-flow: row wrap;
             justify-content: space-between;
+
             &__lien {
                 text-decoration: none;
                 color: $blanc;
-                margin: 0 0 8px 20px;
+                margin: 0;
             }
             &__lien> .fa-solid {
                 font-size: 14px;
                 margin-right: 10px;
                 width: 15px;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .pied_de_page {
+        &__titre {
+            &__para {
+                width: 550px;
+
+                &__lien {
+                    margin: 0 0 8px 20px;
+                    &:last-child {
+                    margin: 10px 0 0 240px ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .pied_de_page {
+        justify-content: flex-start;
+        align-items: flex-start;
+        &__titre {
+            margin: 20px 0 0 20px;
+            &__para {
+                width: 100%;
+                display: flex;
+                flex-flow: column nowrap;
+                &__lien {
+                    margin: 0 0 8px 20px;
+                    &:last-child {
+                        margin: 0 0 0 20px ;
+                    }
+                }
             }
         }
     }

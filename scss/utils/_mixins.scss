@@ -8,4 +8,12 @@
 
   @mixin btn ($colour:$rose, $color-secondaire: $violet){
     background: linear-gradient(to bottom right,$rose, $violet);
+    color: $blanc;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    text-align: center;
+    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
+    font-size: 0.9rem;
+    height: 50px;
   }

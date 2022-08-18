@@ -1,228 +1,287 @@
-@media screen and (max-width: 767px) {
-
-    .header {
-        box-shadow: 0 0 0.5rem #bbbbbb;
+.header {
+    box-shadow: 0 0 0.5rem #bbbbbb;
+}
+.recherche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    &::before {
+        @include fontawesome;
+        content: "\f3c5";
+        margin-right: 160px;
+        position: absolute;
+        z-index: 1;
     }
-    .recherche {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
+    &__placeholder {
         width: 100%;
+        height: 48px;
+        display: flex;
+        text-align: center;
+        background-color: $gris_fonce;
+        border: none;
         position: relative;
-        &::before {
-            @include fontawesome;
-            content: "\f3c5";
-            margin-right: 160px;
-            position: absolute;
-            z-index: 1;
-        }
-        &__placeholder {
-            width: 100%;
-            height: 48px;
-            display: flex;
-            text-align: center;
-            background-color: $gris_fonce;
-            border: none;
-            position: relative;
 
-            &::placeholder {
-                color: black;
-                font-weight: 600;
+        &::placeholder {
+            color: black;
+            font-weight: 600;
+        }
+    }
+}
+
+.contenaire_reservation {
+    display: inline-flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 280px;
+    padding: 0 20px 30px 20px;
+    background-color: $gris_claire;
+    &__para {
+        font-weight: 900;
+        margin-top: 0px;
+        width: 80%;
+        align-self: center;
+        font-size: 1.5rem;
+        cursor: default;
+        &__secon {
+            margin: 0 0 25px 0;
+            font-size: 1rem;
+            color: #353535;
+            cursor: default;
+            &__btn {
+                @include btn;
+                width: 210px;
+                align-self: center;
+                &:hover, &:active {
+                    background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
+                    box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+                }
             }
         }
     }
+}
 
-    .contenaire_reservation {
-        display: inline-flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        text-align: center;
+.filtre {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 300px;
+    padding: 0 100px ;
+    position: relative;
+    &__para {
+        cursor: default;
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-bottom: 10px;
         width: 100%;
-        height: 280px;
-        padding: 0 20px 30px 20px;
-        background-color: $gris_claire;
-        &__para {
-            font-weight: 900;
-            margin-top: 0px;
-            width: 80%;
-            align-self: center;
-            font-size: 1.5rem;
-            cursor: default;
-            &__secon {
-                margin: 0 0 25px 0;
+        &__cadre_filtre {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            background-color: $gris_claire;
+            cursor: pointer;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            width: 350px;
+            height: 75px;
+            padding-right: 100px;
+            white-space: pre;
+            font-weight: 600;
+            box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+            margin-right: 30px;
+            &:hover {
+                background-color: lighten($violet, 35%);
+            }
+            &:hover > .fa-solid {
+                color: $violet;
+            }
+            &__numero {
+                width: 50px;
+                text-align: center;
+                background-color: $violet;
+                border-radius: 30%;
+                color: #fcfcfc;
                 font-size: 1rem;
-                color: #353535;
-                cursor: default;
-                &__btn {
-                    @include btn;
-                    color: $blanc;
-                    cursor: pointer;
-                    padding: 1rem 1rem;
-                    border-radius: 10rem;
-                    font-size: 0.9rem;
-                    width: 210px;
-                    align-self: center;
-                    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
-                    &:hover, &:active{
-                        background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
-                        box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+                padding: 5px 5px;
+                align-self: center;
+                position: absolute;
+                margin-right: 250px;
+                &__fontawe {
+                    margin-left: 50px;
+                    margin-right: 25px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+
+.contenaire_restaurant {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: $gris_claire;
+    width: 100%;
+    padding: 0 70px 0 70px;
+    &__titre {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin: 20px 54px 30px 20px;
+        cursor: default;
+        width: 100%;
+    }
+
+    &__article {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        padding-bottom: 60px;
+        width: 100%;
+    }
+}
+.article_restaurant {
+    position: relative;
+    width: 45%;
+    height: 255px;
+    background-color: $blanc;
+    border-radius: 1rem;
+    box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+    margin: 0 10px 40px 0;
+    &__img {
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+        width: 100%;
+        height: 175px;
+        &__nom {
+            width: 60%;
+            font-weight: 900;
+            margin-left: 10px;
+            margin-top: 10px;
+            &__lieu {
+                width: 50%;
+                margin-left: 10px;
+                margin-top: 5px;
+                &__checkbox {
+                    display: none;
+                    &__label { 
+                        display: inline-block; 
+                        cursor: pointer;
+                        &::after {
+                            background: linear-gradient(180deg,$violet, $rose);
+                            content: "\f004";
+                            @include fontawesome; 
+                            background-size: contain;
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            -moz-background-clip: text;
+                            -moz-text-fill-color: transparent;
+                            font: var(--fa-font-solid);
+                            position: absolute;
+                            right: 30px;
+                            bottom: 30px;
+                            font-size: 25px;
+                            opacity: 0;
+                            transform: scale(1.10);
+                            transition: opacity 400ms ease-out;
+                        }
+                        &--coeur {
+                            position: absolute;
+                            right: 30px;
+                            bottom: 30px;
+                            font-size: 25px;
+                            &__btn {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                background: $vert;
+                                color: #008766;
+                                padding: 0.3rem 0.7rem;
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                    &:checked + &__label::after {
+                        opacity: 1;
                     }
                 }
             }
         }
     }
+}
+
+.article_restaurant a {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 991px) {
 
     .filtre {
         display: flex;
         justify-content: space-evenly;
-        flex-flow: column nowrap;
-        width: 100%;
         height: 400px;
-        padding: 0 20px 0 20px;
+        padding: 0 200px 0 200px;
         margin-bottom: 42px;
         &__para {
-            cursor: default;
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
             &__cadre_filtre {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-                background-color: $gris_claire;
-                cursor: pointer;
-                border-radius: 1.5rem;
-                font-size: 1rem;
                 width: 100%;
-                height: 75px;
-                padding-right: 100px;
-                white-space: pre;
-                font-weight: 600;
-                box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
-                &:hover {
-                    background-color: lighten($violet, 35%);
-                }
-                &:hover > .fa-solid {
-                    color: $violet;
-                }
+                padding-right: 50px;
                 &__numero {
                     width: 20px;
-                    text-align: center;
-                    background-color: $violet;
-                    border-radius: 100%;
-                    color: #fcfcfc;
-                    font-size: 0.8rem;
-                    padding: 5px 5px;
-                    align-self: center;
-                    position: absolute;
-                    left: 12px;
-                    &__fontawe {
-                        margin-left: 50px;
-                        margin-right: 25px;
-                        color: gray;
-                    }
+                    border-radius: 50%;
+                    left: 192px;
+                    top:auto;
                 }
             }
         }
     }
 
     .contenaire_restaurant {
-        display: flex;
-        flex-flow: column wrap;
-        background-color: $gris_claire;
-        padding: 0 20px 0 20px;
-        width: 100%;
-        height: auto;
+        padding: 0 20px 0 40px;
         &__titre {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-top: 54px;
-            margin-bottom: 10px;
-            cursor: default;
-        }
-
-        &__article {
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: space-around;
-            height: 1160px;
-            padding-bottom: 60px;
+            margin: 54px 0 30px 15px;
         }
     }
-    .article_restaurant {
-        position: relative;
+
+}
+
+@media screen and (max-width: 767px) {
+
+    .filtre {
         width: 100%;
-        height: 255px;
-        background-color: $blanc;
-        border-radius: 1rem;
-        box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
-        &__img {
-            object-fit: cover;
-            border-radius: 1rem 1rem 0 0;
-            width: 100%;
-            height: 175px;
-            &__nom {
-                width: 60%;
-                font-weight: 900;
-                margin-left: 10px;
-                margin-top: 10px;
-                &__lieu {
-                    width: 50%;
-                    margin-left: 10px;
-                    margin-top: 5px;
-                    &__checkbox {
-                        display: none;
-                        &__label { 
-                            display: inline-block; 
-                            cursor: pointer;
-                            &::after {
-                                background: linear-gradient(180deg,$violet, $rose);
-                                content: "\f004";
-                                @include fontawesome; 
-                                background-size: contain;
-                                background-clip: text;
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                -moz-background-clip: text;
-                                -moz-text-fill-color: transparent;
-                                font: var(--fa-font-solid);
-                                position: absolute;
-                                right: 30px;
-                                bottom: 30px;
-                                font-size: 25px;
-                                opacity: 0;
-                                transform: scale(1.10);
-                                transition: all 400ms ease-out;
-                            }
-                            &--coeur {
-                                position: absolute;
-                                right: 30px;
-                                bottom: 30px;
-                                font-size: 25px;
-                                &__btn {
-                                    position: absolute;
-                                    top: 10px;
-                                    right: 10px;
-                                    background: $vert;
-                                    color: #008766;
-                                    padding: 0.3rem 0.7rem;
-                                    font-size: 0.8rem;
-                                }
-                            }
-                        }
-                        &:checked + &__label::after {
-                            opacity: 1;
-                        }
-                    }
+        padding: 0 20px 0 20px;
+        &__para {
+            &__cadre_filtre {
+                width: 100%;
+                padding-right: 100px;
+                &__numero {
+                    left: 12px;
                 }
             }
         }
     }
 
-    .article_restaurant a {
-        text-decoration: none;
-        color: black;
+    .contenaire_restaurant {
+        padding: 0 20px 0 20px;
+        &__titre {
+            margin: 54px 0 10px 0;
+        }
+
+        &__article {
+            flex-flow: column nowrap;
+            height: 1160px;
+        }
+    }
+    .article_restaurant {
+        width: 100%;
+        margin: 0;
     }
 
 }
+

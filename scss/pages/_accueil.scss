@@ -1,6 +1,97 @@
+.loading_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.8rem;
+    font-weight: 900;
+    background-color: $gris_claire;
+    position: fixed;
+    z-index: 2;
+    animation: loader 3s both;
+
+    &__loader {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        border: 8px solid $gris_claire;
+        width: 50px;
+        height: 50px;
+        border-top-color: $violet;
+        border-bottom-color: $vert;
+        border-radius: 50%;
+        animation: chargeur 2s linear infinite;
+        &:hover {
+            animation-play-state: paused;
+        }
+
+        &::after {
+            content: "";
+            margin: auto;
+            border: 8px solid $gris_claire;
+            width: 15px;
+            height: 15px;
+            border-top-color: $violet;
+            border-bottom-color: $vert;
+            border-radius: 50%;
+            animation: chargeur-reverse 3s linear infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+        }
+
+        &__titre {
+            letter-spacing: -4px;
+            margin-left: 15px;
+        }
+    }
+}
+
+.lettre {
+    font-family: "Shrikhand", Arial, Helvetica, sans-serif;
+    animation: loader_titre 1.5s linear both;
+    &:nth-child(1) {
+        animation-delay: 0.125s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.25s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.375s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: 0.5s;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 0.625s;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 0.75s;
+    }
+
+    &:nth-child(7) {
+        animation-delay: 0.875s;
+    }
+
+    &:nth-child(8) {
+        animation-delay: 1s;
+    }
+}
+
+
+
 .header {
     box-shadow: 0 0 0.5rem #bbbbbb;
 }
+
 .recherche {
     display: flex;
     justify-content: center;
@@ -8,6 +99,7 @@
     margin: 0;
     width: 100%;
     position: relative;
+
     &::before {
         @include fontawesome;
         content: "\f3c5";
@@ -15,6 +107,7 @@
         position: absolute;
         z-index: 1;
     }
+
     &__placeholder {
         width: 100%;
         height: 48px;
@@ -40,6 +133,7 @@
     height: 280px;
     padding: 0 20px 30px 20px;
     background-color: $gris_claire;
+
     &__para {
         font-weight: 900;
         margin-top: 0px;
@@ -47,16 +141,20 @@
         align-self: center;
         font-size: 1.5rem;
         cursor: default;
+
         &__secon {
             margin: 0 0 25px 0;
             font-size: 1rem;
             color: #353535;
             cursor: default;
+
             &__btn {
                 @include btn;
                 width: 210px;
                 align-self: center;
-                &:hover, &:active {
+
+                &:hover,
+                &:active {
                     background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
                     box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
                 }
@@ -71,14 +169,16 @@
     flex-flow: row wrap;
     width: 100%;
     height: 300px;
-    padding: 0 100px ;
+    padding: 0 100px;
     position: relative;
+
     &__para {
         cursor: default;
         font-size: 1.5rem;
         font-weight: 900;
         margin-bottom: 10px;
         width: 100%;
+
         &__cadre_filtre {
             display: flex;
             flex-flow: row nowrap;
@@ -95,12 +195,15 @@
             font-weight: 600;
             box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
             margin-right: 30px;
+
             &:hover {
                 background-color: lighten($violet, 35%);
             }
-            &:hover > .fa-solid {
+
+            &:hover>.fa-solid {
                 color: $violet;
             }
+
             &__numero {
                 width: 50px;
                 text-align: center;
@@ -112,6 +215,7 @@
                 align-self: center;
                 position: absolute;
                 margin-right: 250px;
+
                 &__fontawe {
                     margin-left: 50px;
                     margin-right: 25px;
@@ -128,6 +232,7 @@
     background-color: $gris_claire;
     width: 100%;
     padding: 0 70px 0 70px;
+
     &__titre {
         font-size: 1.5rem;
         font-weight: 900;
@@ -144,6 +249,7 @@
         width: 100%;
     }
 }
+
 .article_restaurant {
     position: relative;
     width: 45%;
@@ -152,29 +258,35 @@
     border-radius: 1rem;
     box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
     margin: 0 10px 40px 0;
+
     &__img {
         object-fit: cover;
         border-radius: 1rem 1rem 0 0;
         width: 100%;
         height: 175px;
+
         &__nom {
             width: 60%;
             font-weight: 900;
             margin-left: 10px;
             margin-top: 10px;
+
             &__lieu {
                 width: 50%;
                 margin-left: 10px;
                 margin-top: 5px;
+
                 &__checkbox {
                     display: none;
-                    &__label { 
-                        display: inline-block; 
+
+                    &__label {
+                        display: inline-block;
                         cursor: pointer;
+
                         &::after {
-                            background: linear-gradient(180deg,$violet, $rose);
+                            background: linear-gradient(180deg, $violet, $rose);
                             content: "\f004";
-                            @include fontawesome; 
+                            @include fontawesome;
                             background-size: contain;
                             background-clip: text;
                             -webkit-background-clip: text;
@@ -190,11 +302,13 @@
                             transform: scale(1.10);
                             transition: opacity 400ms ease-out;
                         }
+
                         &--coeur {
                             position: absolute;
                             right: 30px;
                             bottom: 30px;
                             font-size: 25px;
+
                             &__btn {
                                 position: absolute;
                                 top: 10px;
@@ -206,7 +320,8 @@
                             }
                         }
                     }
-                    &:checked + &__label::after {
+
+                    &:checked+&__label::after {
                         opacity: 1;
                     }
                 }
@@ -228,15 +343,17 @@
         height: 400px;
         padding: 0 200px 0 200px;
         margin-bottom: 42px;
+
         &__para {
             &__cadre_filtre {
                 width: 100%;
                 padding-right: 50px;
+
                 &__numero {
                     width: 20px;
                     border-radius: 50%;
                     left: 192px;
-                    top:auto;
+                    top: auto;
                 }
             }
         }
@@ -244,6 +361,7 @@
 
     .contenaire_restaurant {
         padding: 0 20px 0 40px;
+
         &__titre {
             margin: 54px 0 30px 15px;
         }
@@ -256,10 +374,12 @@
     .filtre {
         width: 100%;
         padding: 0 20px 0 20px;
+
         &__para {
             &__cadre_filtre {
                 width: 100%;
                 padding-right: 100px;
+
                 &__numero {
                     left: 12px;
                 }
@@ -269,6 +389,7 @@
 
     .contenaire_restaurant {
         padding: 0 20px 0 20px;
+
         &__titre {
             margin: 54px 0 10px 0;
         }
@@ -278,10 +399,10 @@
             height: 1160px;
         }
     }
+
     .article_restaurant {
         width: 100%;
         margin: 0;
     }
 
 }
-

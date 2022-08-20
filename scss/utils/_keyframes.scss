@@ -16,18 +16,18 @@
     border-top-color: $violet;
     border-bottom-color: $violet;
   }
-  33.3% {
+  33.33% {
     transform: rotate(120deg);
     border-top-color: $rose;
     border-bottom-color: $rose;
   }
-  66.3% {
+  66.33% {
     transform: rotate(240deg);
     border-top-color: $vert;
     border-bottom-color: $vert;
   }
 
-    100% {
+  100% {
     transform: rotate(360deg);
     border-top-color: $violet;
     border-bottom-color: $violet;
@@ -65,9 +65,10 @@
       color:black;
   }
 
-  90% {
+  90%, 99% {
     color:$gris_claire;
-    text-shadow: none;
+    opacity: 1;
+    z-index: 2;
   }
 
   100% {
@@ -77,16 +78,26 @@
 
 @keyframes loader{
   0% {
-      opacity: 1;
+    opacity: 1;
   }
 
   90%, 99% {
     opacity: 1;
-    z-index: 3;
+    z-index: 2;
   }
 
   100% {
     opacity: 0;
     z-index: -1;
+  }
+}
+
+@keyframes rotate_icone {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

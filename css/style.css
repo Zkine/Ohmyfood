@@ -273,12 +273,12 @@ p {
     border-top-color: #9356DC;
     border-bottom-color: #9356DC;
   }
-  33.3% {
+  33.33% {
     transform: rotate(120deg);
     border-top-color: #FF79DA;
     border-bottom-color: #FF79DA;
   }
-  66.3% {
+  66.33% {
     transform: rotate(240deg);
     border-top-color: #99E2D0;
     border-bottom-color: #99E2D0;
@@ -315,9 +315,10 @@ p {
   0% {
     color: black;
   }
-  90% {
+  90%, 99% {
     color: #f6f6f6;
-    text-shadow: none;
+    opacity: 1;
+    z-index: 2;
   }
   100% {
     color: black;
@@ -329,11 +330,19 @@ p {
   }
   90%, 99% {
     opacity: 1;
-    z-index: 3;
+    z-index: 2;
   }
   100% {
     opacity: 0;
     z-index: -1;
+  }
+}
+@keyframes rotate_icone {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 .pied_de_page {
@@ -472,7 +481,7 @@ p {
 }
 
 .lettre {
-  font-family: "Shrikhand", Arial, Helvetica, sans-serif;
+  font-family: "Shrikhand";
   animation: loader_titre 1.5s linear both;
 }
 .lettre:nth-child(1) {
@@ -740,7 +749,6 @@ p {
 
 @media screen and (max-width: 991px) {
   .filtre {
-    display: flex;
     justify-content: space-evenly;
     height: 400px;
     padding: 0 200px 0 200px;
@@ -765,11 +773,13 @@ p {
 }
 @media screen and (max-width: 767px) {
   .filtre {
+    flex-flow: column nowrap;
     width: 100%;
     padding: 0 20px 0 20px;
   }
   .filtre__para__cadre_filtre {
     width: 100%;
+    max-width: 767px;
     padding-right: 100px;
   }
   .filtre__para__cadre_filtre__numero {
@@ -934,62 +944,80 @@ p {
   margin: 10px 0 0px 10px;
   font-weight: 600;
   font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu__plat__type__composition {
   margin: 5px 0 10px 10px;
   font-size: 1rem;
   font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu__plat__type__composition__anime {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 200px;
+  width: auto;
 }
-.menu__plat__type__composition__anime__prix {
-  font-weight: 900;
-  align-self: end;
-  margin: 0 10px 10px 0;
-  transform: translateX(40px);
-  transition: transform 800ms ease-in-out;
-}
-.menu__plat__type__composition__anime__prix__checkbox {
+.menu__plat__type__composition__anime__checkbox {
   position: absolute;
   width: 100%;
-  height: 68px;
+  height: 100%;
   opacity: 0;
   cursor: pointer;
+  z-index: 1;
 }
-.menu__plat__type__composition__anime__prix__checkbox--check {
+.menu__plat__type__composition__anime__checkbox__prix {
+  font-weight: 900;
+  align-self: end;
+  margin: 0 20px 10px 0;
+  transform: translateX(0px);
+  transition: transform 500ms ease-in-out, margin-left 500ms ease-in-out;
+  cursor: pointer;
+}
+.menu__plat__type__composition__anime__checkbox__prix--check {
   height: 100%;
   background-color: #99E2D0;
   border-radius: 0 1rem 1rem 0;
   display: flex;
   width: 60px;
-  transition: transform 800ms ease-in-out;
-  transform: translateX(60px);
+  margin-right: -60px;
+  transition: transform 500ms ease-in-out;
+  transform: translateX(0px);
+  cursor: pointer;
 }
-.menu__plat__type__composition__anime__prix__checkbox--check > .fa-solid {
+.menu__plat__type__composition__anime__checkbox__prix--check > .fa-solid {
   color: #99E2D0;
   background-color: #ffffff;
   border-radius: 50%;
   padding: 3px;
   margin: auto;
   font-size: 13px;
-  transition: transform 800ms ease-in-out;
+  cursor: pointer;
 }
-.menu__plat__type__composition__anime__prix__checkbox:hover + .menu__plat__type__composition__anime__prix__checkbox--check {
-  transform: translateX(0px);
+.menu__plat__type__composition__anime__checkbox:hover + .menu__plat__type__composition__anime__checkbox__prix {
+  transform: translateX(-60px);
+  margin-left: 60px;
 }
-.menu__plat__type__composition__anime__prix__checkbox:hover + .menu__plat__type__composition__anime__prix__checkbox--check > .fa-solid {
-  transform: rotate(360deg);
+.menu__plat__type__composition__anime__checkbox:hover ~ .menu__plat__type__composition__anime__checkbox__prix--check {
+  transform: translateX(-60px);
 }
-.menu__plat__type__composition__anime__prix__checkbox:checked + .menu__plat__type__composition__anime__prix__checkbox--check {
-  transform: translateX(0px);
+.menu__plat__type__composition__anime__checkbox:hover ~ .menu__plat__type__composition__anime__checkbox__prix--check > .fa-solid {
+  animation: rotate_icone 500ms ease-in-out backwards;
 }
-.menu__plat__type__composition__anime__prix__checkbox:checked + .menu__plat__type__composition__anime__prix__checkbox--check > .fa-solid {
-  transform: rotate(360deg);
+.menu__plat__type__composition__anime__checkbox:checked + .menu__plat__type__composition__anime__checkbox__prix {
+  transform: translateX(-60px);
+  margin-left: 30px;
+}
+.menu__plat__type__composition__anime__checkbox:checked ~ .menu__plat__type__composition__anime__checkbox__prix--check {
+  transform: translateX(-60px);
+}
+.menu__plat__type__composition__anime__checkbox:checked ~ .menu__plat__type__composition__anime__checkbox__prix--check > .fa-solid {
+  animation: rotate_icone 500ms ease-in-out backwards;
 }
 
 .btn_contenaire {
@@ -1021,6 +1049,8 @@ p {
   .contenaire_titre__h1 {
     font-size: 1.6rem;
     align-self: start;
+    margin: 30px 20px 15px 20px;
+    font-weight: 500;
   }
   .contenaire_titre__h1__checkbox__label::after {
     right: 40px;
@@ -1064,7 +1094,6 @@ p {
 @media screen and (max-width: 767px) {
   .la_carte {
     width: 767px;
-    max-width: 100%;
   }
   .menu {
     max-width: 767px;

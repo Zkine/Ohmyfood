@@ -51,7 +51,7 @@
 }
 
 .lettre {
-    font-family: "Shrikhand", Arial, Helvetica, sans-serif;
+    font-family: "Shrikhand";
     animation: loader_titre 1.5s linear both;
     &:nth-child(1) {
         animation-delay: 0.125s;
@@ -338,7 +338,6 @@
 @media screen and (max-width: 991px) {
 
     .filtre {
-        display: flex;
         justify-content: space-evenly;
         height: 400px;
         padding: 0 200px 0 200px;
@@ -372,12 +371,14 @@
 @media screen and (max-width: 767px) {
 
     .filtre {
+        flex-flow: column nowrap;
         width: 100%;
         padding: 0 20px 0 20px;
 
         &__para {
             &__cadre_filtre {
                 width: 100%;
+                max-width: 767px;
                 padding-right: 100px;
 
                 &__numero {

@@ -16,10 +16,11 @@
 
 .contenaire_titre {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
     border-radius: 2.5rem 2.5rem 0 0;
     background-color: $gris_claire;
-    position: relative;
 
     &__h1 {
         margin: 30px 20px 30px 20px;
@@ -33,41 +34,43 @@
 
             &__label {
                 display: inline-block;
-                cursor: pointer;
+                cursor: default;
+                position: relative;
 
-                &::after {
-                    background: linear-gradient(180deg, $violet, $rose);
-                    content: "\f004";
-                    @include fontawesome;
-                    background-size: contain;
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    -moz-background-clip: text;
-                    -moz-text-fill-color: transparent;
-                    font: var(--fa-font-solid);
-                    content: "\f004";
-                    position: absolute;
-                    right: 50%;
-                    bottom: 0;
+                & > .fa-regular {
+                    position: relative;
                     font-size: 25px;
-                    opacity: 0;
-                    transition: opacity 400ms ease-out;
-                }
-
-                &--coeur {
-                    position: absolute;
-                    font-size: 25px;
-                    right: 50%;
                     bottom: 0;
                     cursor: pointer;
+                    z-index: 1;
+                    align-self: center;
+
+                    &::after {
+                        background: linear-gradient(180deg, $violet, $rose);
+                        content: "\f004";
+                        @include fontawesome;
+                        background-size: contain;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        -moz-background-clip: text;
+                        -moz-text-fill-color: transparent;
+                        font: var(--fa-font-solid);
+                        content: "\f004";
+                        position: absolute;
+                        right: 0;
+                        font-size: 25px;
+                        opacity: 0;
+                        transition: opacity 400ms ease-out;
+                    } 
                 }
             }
 
-            &:checked + &__label::after {
-                opacity: 1;
+            &:checked + &__label {
+                & > .fa-regular::after {
+                    opacity: 1;
+                }
             }
-
         }
     }
 }
@@ -76,6 +79,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+
     &__menu {
     display: flex;
     flex-flow: column wrap;
@@ -159,7 +163,7 @@
             &__composition {
                 margin: 5px 0 10px 10px;
                 font-size: 1rem;
-                font-weight: 300;
+                font-weight: 100;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -212,19 +216,19 @@
 
                         &:hover + &__prix {
                             transform: translateX(-60px);
-                            margin-left: 60px;
+                            margin-left: 63px;
                         }
 
                         &:hover ~ &__prix--check {
                             transform: translateX(-60px);
                             & > .fa-solid {
-                                animation: rotate_icone 500ms ease-in-out backwards;
+                                animation: rotate_icone 500ms ease-in-out both;
                             }
                         }
 
                         &:checked + &__prix {
                             transform: translateX(-60px);
-                            margin-left: 30px;
+                            margin-left: 63px;
                         }
 
                         &:checked ~ &__prix--check {
@@ -262,6 +266,9 @@
 @media screen and (max-width: 991px) {
 
     .contenaire_titre {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         &__h1 {
             font-size: 1.6rem;
@@ -273,14 +280,8 @@
 
                 &__label {
 
-                    &::after {
-                        right: 40px;
-                        bottom: 23px;
-                    }
-
-                    &--coeur {
-                        right: 40px;
-                        bottom: 23px;
+                    & > .fa-regular {
+                        margin: 10px 20px 0 0;
                     }
                 }
             }

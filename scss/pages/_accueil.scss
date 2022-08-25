@@ -5,7 +5,6 @@
     width: 100%;
     height: 100%;
     font-size: 1.8rem;
-    font-weight: 900;
     background-color: $gris_claire;
     position: fixed;
     z-index: 2;
@@ -115,7 +114,6 @@
         text-align: center;
         background-color: $gris_fonce;
         border: none;
-        position: relative;
 
         &::placeholder {
             color: black;
@@ -165,67 +163,76 @@
 
 .filtre {
     display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     width: 100%;
-    height: 300px;
-    padding: 0 90px;
+    padding: 0 70px;
+    height: 250px;
+    margin-bottom: 42px;
     position: relative;
 
-    &__para {
+    &__titre {
         cursor: default;
         font-size: 1.5rem;
         font-weight: 900;
-        margin-bottom: 10px;
-        width: 100%;
+        margin: 20px  0 0px 20px;
+    }
+}
 
-        &__cadre_filtre {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            align-items: center;
-            background-color: $gris_claire;
-            cursor: pointer;
-            border-radius: 1.5rem;
-            font-size: 1.1rem;
-            width: 350px;
-            height: 75px;
-            padding-right: 100px;
-            white-space: pre;
-            font-weight: 600;
-            box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
-            margin-right: 30px;
+.cadre {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin: auto;
+    width: 100%;
 
-            & > .fa-solid {
-                margin-left: 50px;
-                margin-right: 25px;
-                color: gray;
-            }
-
-
-            &:hover {
-                background-color: lighten($violet, 35%);
-            }
-
-            &:hover > .fa-solid {
-                color: $violet;
-            }
-
-            &__numero {
-                width: 45px;
-                text-align: center;
-                background-color: $violet;
-                border-radius: 30%;
-                color: #fcfcfc;
-                font-size: 1rem;
-                padding: 5px 5px;
-                align-self: center;
-                position: absolute;
-                margin-right: 250px;
-            }
+    &__filtre {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        background-color: $gris_claire;
+        cursor: pointer;
+        border-radius: 1.5rem;
+        font-size: 1rem;
+        width: 350px;
+        height: 75px;
+        padding-right: 100px;
+        white-space: pre;
+        font-weight: 600;
+        box-shadow: 1px 5px 10px 1px rgba(158, 158, 158, 0.35);
+        margin: 15px 15px 15px 0;
+    
+        & > .fa-solid {
+            margin-left: 50px;
+            margin-right: 25px;
+            color: gray;
+            font-size: 20px;
+        }
+    
+    
+        &:hover {
+            background-color: lighten($violet, 35%);
+        }
+    
+        &:hover > .fa-solid {
+            color: $violet;
+        }
+    
+        &__numero {
+            width: 45px;
+            text-align: center;
+            background-color: $violet;
+            border-radius: 30%;
+            color: $blanc;
+            font-size: 1rem;
+            padding: 5px 5px;
+            position: absolute;
+            margin-right: 230px;
         }
     }
 }
+
 
 .contenaire_restaurant {
     display: flex;
@@ -341,22 +348,37 @@
 @media screen and (max-width: 991px) {
 
     .filtre {
-        justify-content: space-evenly;
         height: 400px;
-        padding: 0 200px 0 200px;
         margin-bottom: 42px;
+        flex-flow: column nowrap;
+        padding: 0;
+        &__titre {
+            margin-left: 200px;
+        }
+    }
 
-        &__para {
-            &__cadre_filtre {
-                width: 100%;
-                padding-right: 50px;
+    .cadre {
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        margin: 0;
+        height: 100%;
+        padding: 0;
+        position: none;
+        padding: 0 200px 0 200px;
+        &__filtre {
+            justify-content: start;
+            width: 100%;
+            padding-right: 50px;
+            margin: 0;
 
-                &__numero {
-                    width: 20px;
-                    border-radius: 50%;
-                    left: 192px;
-                    top: auto;
-                }
+            & > .fa-solid {
+                margin-left: 35px;
+            }
+
+            &__numero {
+                width: 20px;
+                border-radius: 50%;
+                left: 192px;
             }
         }
     }
@@ -374,19 +396,24 @@
 @media screen and (max-width: 767px) {
 
     .filtre {
+
+        &__titre {
+            margin-left: 20px;
+        }
+    }
+
+    .cadre {
         flex-flow: column nowrap;
+        padding: 0 20px 0 30px;
         width: 100%;
-        padding: 0 20px 0 20px;
 
-        &__para {
-            &__cadre_filtre {
-                width: 100%;
-                max-width: 767px;
-                padding-right: 100px;
+        &__filtre {
+            width: 100%;
+            max-width: 767px;
+            padding-right: 100px;
 
-                &__numero {
-                    left: 12px;
-                }
+            &__numero {
+                left: 16px;
             }
         }
     }

@@ -188,7 +188,7 @@
                             align-self: end;
                             margin: 0 20px 10px 0;
                             transform: translateX(0px);
-                            transition: transform 500ms ease-in-out,margin-left 500ms ease-in-out;
+                            transition: transform 500ms ease-in-out, margin-left 500ms ease-in-out;
                             cursor: pointer;
 
                             &--check {
@@ -216,25 +216,25 @@
 
                         &:hover + &__prix {
                             transform: translateX(-60px);
-                            margin-left: 63px;
+                            margin-left: 100px;
                         }
 
                         &:hover ~ &__prix--check {
                             transform: translateX(-60px);
                             & > .fa-solid {
-                                animation: rotate_icone 500ms ease-in-out both;
+                                animation: rotate_icone 400ms linear both;
                             }
                         }
 
                         &:checked + &__prix {
                             transform: translateX(-60px);
-                            margin-left: 63px;
+                            margin-left: 100px;
                         }
 
                         &:checked ~ &__prix--check {
                             transform: translateX(-60px);
                             & > .fa-solid {
-                                animation: rotate_icone 500ms ease-in-out backwards;
+                                animation: rotate_icone 400ms linear both;
                             }
                         }
                     }
@@ -281,7 +281,7 @@
                 &__label {
 
                     & > .fa-regular {
-                        margin: 10px 20px 0 0;
+                        margin: 10px 40px 0 0;
                     }
                 }
             }
@@ -291,9 +291,13 @@
     .contenaire {
         flex-flow: column nowrap;
         justify-content: none;
+
         &__menu {
         max-width: 100%;
         width: auto;
+            &__type {
+            width: auto;
+            }
         }
     }
 
@@ -305,7 +309,7 @@
     .menu {
         width: 100%;
         max-width: 991px;
-        height: 68px;
+        height: auto;
 
         &__plat {
 
@@ -313,11 +317,13 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                margin-top: 11px;
     
                 &__composition {
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
+                    margin-bottom: 11px;
                 }
             }
         }
@@ -333,11 +339,28 @@
 
 @media screen and (max-width: 767px) {
 
+    .contenaire_titre {
+
+        &__h1 {
+            margin: 30px 0px 15px 20px;
+        }
+    }
+
     .la_carte {
         width: 767px;
     }
 
     .menu {
         max-width: 767px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+
+    .contenaire_titre {
+
+        &__h1 {
+            font-size: 1.4rem;
+        }
     }
 }

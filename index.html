@@ -21,17 +21,17 @@
 
 <body>
     <div class="loading_spinner">
-    <div class="loading_spinner__loader"></div>
-    <div class="loading_spinner__loader__titre">
-        <span class="lettre">O</span>
-        <span class="lettre">h</span>
-        <span class="lettre">m</span>
-        <span class="lettre">y</span>
-        <span class="lettre">f</span>
-        <span class="lettre">o</span>
-        <span class="lettre">o</span>
-        <span class="lettre">d</span>
-    </div>
+        <div class="loading_spinner__loader"></div>
+        <div class="loading_spinner__loader__titre">
+            <span class="lettre">O</span>
+            <span class="lettre">h</span>
+            <span class="lettre">m</span>
+            <span class="lettre">y</span>
+            <span class="lettre">f</span>
+            <span class="lettre">o</span>
+            <span class="lettre">o</span>
+            <span class="lettre">d</span>
+        </div>
     </div>
     <header class="header">
         <img src="images/logo/ohmyfood@2x.svg" alt="logo_ohmyfood" class="header__logo_ohmyfood" />
@@ -40,24 +40,28 @@
         <section>
             <form method="post" action="traitement.php">
                 <p class="recherche">
-                    <input type="search" class="recherche__placeholder" name="rechercher" placeholder="Paris, Belleville" />
+                    <input type="search" class="recherche__placeholder" name="rechercher"
+                        placeholder="Paris, Belleville" />
                 </p>
             </form>
         </section>
         <section>
             <article class="contenaire_reservation">
                 <p class="contenaire_reservation__para">Réservez le menu qui vous convient</p>
-                <p class="contenaire_reservation__para__secon">Découvrez des restaurants d'exception, séléctionnés par nos soins.</p>
+                <p class="contenaire_reservation__para__secon">Découvrez des restaurants d'exception, séléctionnés par
+                    nos soins.</p>
                 <div class="contenaire_reservation__para__secon__btn">
                     Explorer nos restaurants
                 </div>
             </article>
         </section>
         <section class="filtre">
-            <p class="filtre__para">Fonctionnement</p>
-            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">1</span><i class="fa-solid fa-mobile-screen-button"></i><p>Choisissez un restaurant</p></div>
-            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">2</span><i class="fa-solid fa-list-ul"></i><p>Composez votre menu</p></div>
-            <div class="filtre__para__cadre_filtre"><span class="filtre__para__cadre_filtre__numero">3</span><i class="fa-solid fa-store"></i><p>Déguster au restaurant</p></div>
+            <p class="filtre__titre">Fonctionnement</p>
+            <div class="cadre">
+                <div class="cadre__filtre"><span class="cadre__filtre__numero">1</span><i class="fa-solid fa-mobile-screen-button"></i><p>Choisissez un restaurant</p></div>
+                <div class="cadre__filtre"><span class="cadre__filtre__numero">2</span><i class="fa-solid fa-list-ul"></i><p>Composez votre menu</p></div>
+                <div class="cadre__filtre"><span class="cadre__filtre__numero">3</span><i class="fa-solid fa-store"></i><p>Déguster au restaurant</p></div>
+            </div>
         </section>
         <section class="contenaire_restaurant">
             <p class="contenaire_restaurant__titre">Restaurants</p>
@@ -68,41 +72,47 @@
                             <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
                                 alt="La palette du goût" class="article_restaurant__img" />
                             <figcaption class="article_restaurant__img__nom">La palette du goût</figcaption>
-                        </figure>    
+                        </figure>
                         <p class="article_restaurant__img__nom__lieu">Ménilmontant</p>
                         <div class="article_restaurant__img__nom__lieu__checkbox__label__btn">
                             Nouveau
                         </div>
                     </a>
-                    <input type="checkbox" name="coeur" id="checkbox--coeur1" class="article_restaurant__img__nom__lieu__checkbox"/>
-                    <label for="checkbox--coeur1" class="article_restaurant__img__nom__lieu__checkbox__label"><i class="fa-regular fa-heart"></i></label>
+                    <input type="checkbox" name="coeur" id="checkbox--coeur1"
+                        class="article_restaurant__img__nom__lieu__checkbox" />
+                    <label for="checkbox--coeur1" class="article_restaurant__img__nom__lieu__checkbox__label"><i
+                            class="fa-regular fa-heart"></i></label>
                 </article>
                 <article class="article_restaurant">
                     <a href="./la_note_enchantée.html">
                         <figure>
-                            <img src="images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
-                                alt="La note enchantée" class="article_restaurant__img" />
+                            <img src="images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" alt="La note enchantée"
+                                class="article_restaurant__img" />
                             <figcaption class="article_restaurant__img__nom">La note enchantée</figcaption>
-                        </figure>    
+                        </figure>
                         <p class="article_restaurant__img__nom__lieu">Charonne</p>
                         <div class="article_restaurant__img__nom__lieu__checkbox__label__btn">
                             Nouveau
                         </div>
                     </a>
-                    <input type="checkbox" name="coeur" id="checkbox--coeur2" class="article_restaurant__img__nom__lieu__checkbox"/>
-                    <label for="checkbox--coeur2" class="article_restaurant__img__nom__lieu__checkbox__label"><i class="fa-regular fa-heart"></i></label>
+                    <input type="checkbox" name="coeur" id="checkbox--coeur2"
+                        class="article_restaurant__img__nom__lieu__checkbox" />
+                    <label for="checkbox--coeur2" class="article_restaurant__img__nom__lieu__checkbox__label"><i
+                            class="fa-regular fa-heart"></i></label>
                 </article>
                 <article class="article_restaurant">
                     <a href="./a_la_Française.html">
                         <figure>
-                            <img src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
-                                alt="À la Française" class="article_restaurant__img" />
+                            <img src="images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="À la Française"
+                                class="article_restaurant__img" />
                             <figcaption class="article_restaurant__img__nom">À la Française</figcaption>
-                        </figure>    
+                        </figure>
                         <p class="article_restaurant__img__nom__lieu">Cité Rouge</p>
                     </a>
-                    <input type="checkbox" name="coeur" id="checkbox--coeur3" class="article_restaurant__img__nom__lieu__checkbox"/>
-                    <label for="checkbox--coeur3" class="article_restaurant__img__nom__lieu__checkbox__label"><i class="fa-regular fa-heart"></i></label>
+                    <input type="checkbox" name="coeur" id="checkbox--coeur3"
+                        class="article_restaurant__img__nom__lieu__checkbox" />
+                    <label for="checkbox--coeur3" class="article_restaurant__img__nom__lieu__checkbox__label"><i
+                            class="fa-regular fa-heart"></i></label>
                 </article>
                 <article class="article_restaurant">
                     <a href="./le_délice_des_sens.html">
@@ -110,11 +120,13 @@
                             <img src="images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
                                 alt="Le délice des sens" class="article_restaurant__img" />
                             <figcaption class="article_restaurant__img__nom">Le délice des sens</figcaption>
-                        </figure> 
+                        </figure>
                         <p class="article_restaurant__img__nom__lieu">Folie-Méricourt</p>
                     </a>
-                    <input type="checkbox" name="coeur" id="checkbox--coeur4" class="article_restaurant__img__nom__lieu__checkbox"/>
-                    <label for="checkbox--coeur4" class="article_restaurant__img__nom__lieu__checkbox__label"><i class="fa-regular fa-heart"></i></label>
+                    <input type="checkbox" name="coeur" id="checkbox--coeur4"
+                        class="article_restaurant__img__nom__lieu__checkbox" />
+                    <label for="checkbox--coeur4" class="article_restaurant__img__nom__lieu__checkbox__label"><i
+                            class="fa-regular fa-heart"></i></label>
                 </article>
             </div>
         </section>
@@ -122,9 +134,11 @@
     <footer>
         <section class="pied_de_page">
             <h1 class="pied_de_page__titre">ohmyfood</h1>
-            <p  class="pied_de_page__titre__para">
-                <a href="#" class="pied_de_page__titre__para__lien"><i class="fa-solid fa-utensils"></i>Proposer une restaurant</a>
-                <a href="#" class="pied_de_page__titre__para__lien"><i class="fa-solid fa-handshake-angle"></i>Devenir partenaire</a>
+            <p class="pied_de_page__titre__para">
+                <a href="#" class="pied_de_page__titre__para__lien"><i class="fa-solid fa-utensils"></i>Proposer une
+                    restaurant</a>
+                <a href="#" class="pied_de_page__titre__para__lien"><i class="fa-solid fa-handshake-angle"></i>Devenir
+                    partenaire</a>
                 <a href="#" class="pied_de_page__titre__para__lien">Mentions légales</a>
                 <a href="mailto:contact.ohmyfood@aol.fr" class="pied_de_page__titre__para__lien">Contact</a>
             </p>

@@ -962,7 +962,7 @@ p {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  min-width: 120px;
+  min-width: 50px;
 }
 .menu__plat__type {
   margin: 10px 0 0px 10px;

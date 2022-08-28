@@ -17,9 +17,10 @@
         width: 50px;
         height: 50px;
         border-top-color: $violet;
-        border-bottom-color: $vert;
+        border-bottom-color: $violet;
         border-radius: 50%;
         animation: chargeur 2s linear infinite;
+        position: relative;
         &:hover {
             animation-play-state: paused;
         }
@@ -31,9 +32,9 @@
             width: 15px;
             height: 15px;
             border-top-color: $violet;
-            border-bottom-color: $vert;
+            border-bottom-color: $violet;
             border-radius: 50%;
-            animation: chargeur-reverse 3s linear infinite;
+            animation: chargeur-reverse 3s linear;
             position: absolute;
             top: 0;
             left: 0;
@@ -150,11 +151,28 @@
                 @include btn;
                 width: 210px;
                 align-self: center;
+                position: relative;
+                opacity: 1;
+                z-index: 1;
 
+                &::after {
+                    content: "";
+                    @include btn_after;
+                    position:absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    opacity: 0;
+                    z-index: -1;
+                }
                 &:hover,
                 &:active {
-                    background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
-                    box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+
+                    &::after {
+                        opacity: 1;
+                        transition: opacity 200ms;
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@
     font-family: "Font Awesome 6 Free";
   }
 
-  @mixin btn ($colour:$rose, $color-secondaire: $violet){
+  @mixin btn ($colour: $rose, $color-secondaire: $violet){
     background: linear-gradient(to bottom right,$rose, $violet);
     color: $blanc;
     cursor: pointer;
@@ -16,4 +16,10 @@
     box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 35%);
     font-size: 0.9rem;
     height: 50px;
+  }
+
+  @mixin btn_after ($colour: $rose, $color-secondaire: $violet){
+    background: linear-gradient(to bottom right, lighten($rose, 2), lighten($violet, 2));
+    border-radius: 10rem;
+    box-shadow: 1px 3px 10px 1px rgb(0 0 0 / 35%);
   }

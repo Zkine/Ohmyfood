@@ -254,14 +254,32 @@
         @include btn;
         margin: auto;
         width: 230px;
-        font-size: 1rem;
-        &:hover {
-            background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
-            box-shadow: 1px 5px 8px 1px rgb(0 0 0 / 35%);
+        font-size: 1rem;;
+        position: relative;
+        opacity: 1;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            @include btn_after;
+            position:absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &:hover,
+        &:active {
+            &::after {
+                opacity: 1;
+                transition: opacity 200ms;
+            }
         }
     }
 }
-
 
 @media screen and (max-width: 991px) {
 

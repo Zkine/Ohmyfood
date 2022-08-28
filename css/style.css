@@ -448,9 +448,10 @@ p {
   width: 50px;
   height: 50px;
   border-top-color: #9356DC;
-  border-bottom-color: #99E2D0;
+  border-bottom-color: #9356DC;
   border-radius: 50%;
   animation: chargeur 2s linear infinite;
+  position: relative;
 }
 .loading_spinner__loader:hover {
   animation-play-state: paused;
@@ -462,9 +463,9 @@ p {
   width: 15px;
   height: 15px;
   border-top-color: #9356DC;
-  border-bottom-color: #99E2D0;
+  border-bottom-color: #9356DC;
   border-radius: 50%;
-  animation: chargeur-reverse 3s linear infinite;
+  animation: chargeur-reverse 3s linear;
   position: absolute;
   top: 0;
   left: 0;
@@ -578,10 +579,26 @@ p {
   height: 50px;
   width: 210px;
   align-self: center;
+  position: relative;
+  opacity: 1;
+  z-index: 1;
 }
-.contenaire_reservation__para__secon__btn:hover, .contenaire_reservation__para__secon__btn:active {
-  background: linear-gradient(to bottom right, #ff93e1, #a16be0);
-  box-shadow: 1px 5px 8px 1px rgba(0, 0, 0, 0.35);
+.contenaire_reservation__para__secon__btn::after {
+  content: "";
+  background: linear-gradient(to bottom right, #ff83dd, #985ede);
+  border-radius: 10rem;
+  box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.contenaire_reservation__para__secon__btn:hover::after, .contenaire_reservation__para__secon__btn:active::after {
+  opacity: 1;
+  transition: opacity 200ms;
 }
 
 .filtre {
@@ -1063,10 +1080,26 @@ p {
   margin: auto;
   width: 230px;
   font-size: 1rem;
+  position: relative;
+  opacity: 1;
+  z-index: 1;
 }
-.btn_contenaire__btn:hover {
-  background: linear-gradient(to bottom right, #ff93e1, #a16be0);
-  box-shadow: 1px 5px 8px 1px rgba(0, 0, 0, 0.35);
+.btn_contenaire__btn::after {
+  content: "";
+  background: linear-gradient(to bottom right, #ff83dd, #985ede);
+  border-radius: 10rem;
+  box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.btn_contenaire__btn:hover::after, .btn_contenaire__btn:active::after {
+  opacity: 1;
+  transition: opacity 200ms;
 }
 
 @media screen and (max-width: 991px) {

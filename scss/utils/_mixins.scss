@@ -19,7 +19,7 @@
   }
 
   @mixin btn_after ($colour: $rose, $color-secondaire: $violet){
-    background: linear-gradient(to bottom right, lighten($rose, 2), lighten($violet, 2));
+    background: linear-gradient(to bottom right, lighten($rose, 5), lighten($violet, 5));
     border-radius: 10rem;
-    box-shadow: 1px 3px 10px 1px rgb(0 0 0 / 35%);
+    box-shadow: 0px 2px 10px 1px rgb(0 0 0 / 35%);
   }

@@ -37,7 +37,7 @@
                 cursor: default;
                 position: relative;
 
-                & > .fa-regular {
+                &>.fa-regular {
                     position: relative;
                     font-size: 25px;
                     bottom: 0;
@@ -62,12 +62,12 @@
                         font-size: 25px;
                         opacity: 0;
                         transition: opacity 400ms ease-out;
-                    } 
+                    }
                 }
             }
 
-            &:checked + &__label {
-                & > .fa-regular::after {
+            &:checked+&__label {
+                &>.fa-regular::after {
                     opacity: 1;
                 }
             }
@@ -81,27 +81,27 @@
     justify-content: space-around;
 
     &__menu {
-    display: flex;
-    flex-flow: column wrap;
-    margin-top: 8px;
-    padding: 0 10px;
-    width: 24.70%;
+        display: flex;
+        flex-flow: column wrap;
+        margin-top: 8px;
+        padding: 0 10px;
+        width: 24.70%;
 
-    &__type {
-        text-transform: uppercase;
-        margin-bottom: 3px;
-        margin-left: 20px;
-        cursor: default;
-        width: 100%;
-
-        &--soulignement_vert {
-            background-color: $vert;
-            width: 40px;
-            height: 3px;
+        &__type {
+            text-transform: uppercase;
+            margin-bottom: 3px;
             margin-left: 20px;
-            margin-bottom: 10px;
+            cursor: default;
+            width: 100%;
 
-           }
+            &--soulignement_vert {
+                background-color: $vert;
+                width: 40px;
+                height: 3px;
+                margin-left: 20px;
+                margin-bottom: 10px;
+
+            }
         }
     }
 }
@@ -184,7 +184,7 @@
                         z-index: 1;
 
                         &__prix {
-                            font-weight: 900; 
+                            font-weight: 900;
                             align-self: end;
                             margin: 0 20px 10px 0;
                             transform: translateX(0px);
@@ -201,8 +201,8 @@
                                 transition: transform 500ms ease-in-out;
                                 transform: translateX(0px);
                                 cursor: pointer;
-                                
-                                & > .fa-solid  {
+
+                                &>.fa-solid {
                                     color: $vert;
                                     background-color: $blanc;
                                     border-radius: 50%;
@@ -214,26 +214,28 @@
                             }
                         }
 
-                        &:hover + &__prix {
+                        &:hover+&__prix {
                             transform: translateX(-60px);
                             margin-left: 100px;
                         }
 
-                        &:hover ~ &__prix--check {
+                        &:hover~&__prix--check {
                             transform: translateX(-60px);
-                            & > .fa-solid {
+
+                            &>.fa-solid {
                                 animation: rotate_icone 400ms linear both;
                             }
                         }
 
-                        &:checked + &__prix {
+                        &:checked+&__prix {
                             transform: translateX(-60px);
                             margin-left: 100px;
                         }
 
-                        &:checked ~ &__prix--check {
+                        &:checked~&__prix--check {
                             transform: translateX(-60px);
-                            & > .fa-solid {
+
+                            &>.fa-solid {
                                 animation: rotate_icone 400ms linear both;
                             }
                         }
@@ -254,7 +256,8 @@
         @include btn;
         margin: auto;
         width: 230px;
-        font-size: 1rem;;
+        font-size: 1rem;
+        ;
         position: relative;
         opacity: 1;
         z-index: 1;
@@ -262,7 +265,7 @@
         &::after {
             content: "";
             @include btn_after;
-            position:absolute;
+            position: absolute;
             top: 0;
             right: 0;
             left: 0;
@@ -298,7 +301,7 @@
 
                 &__label {
 
-                    & > .fa-regular {
+                    &>.fa-regular {
                         margin: 10px 40px 0 0;
                     }
                 }
@@ -308,13 +311,13 @@
 
     .contenaire {
         flex-flow: column nowrap;
-        justify-content: none;
 
         &__menu {
-        max-width: 100%;
-        width: auto;
-            &__type {
+            max-width: 100%;
             width: auto;
+
+            &__type {
+                width: auto;
             }
         }
     }
@@ -336,7 +339,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 margin-top: 11px;
-    
+
                 &__composition {
                     white-space: nowrap;
                     text-overflow: ellipsis;

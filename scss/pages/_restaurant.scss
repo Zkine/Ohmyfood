@@ -40,7 +40,6 @@
                 &>.fa-regular {
                     position: relative;
                     font-size: 25px;
-                    bottom: 0;
                     cursor: pointer;
                     z-index: 1;
                     align-self: center;
@@ -376,12 +375,45 @@
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 345px) {
 
     .contenaire_titre {
 
         &__h1 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+
+            &__checkbox {
+                display: none;
+    
+                &__label {
+                    display: inline-block;
+                    cursor: default;
+                    position: relative;
+    
+                    &>.fa-regular {
+                        margin: 10px 20px 0 0;
+    
+                        &::after {
+                            background: linear-gradient(180deg, $violet, $rose);
+                            content: "\f004";
+                            @include fontawesome;
+                            background-size: contain;
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            -moz-background-clip: text;
+                            -moz-text-fill-color: transparent;
+                            font: var(--fa-font-solid);
+                            content: "\f004";
+                            position: absolute;
+                            right: 0;
+                            font-size: 25px;
+                            opacity: 0;
+                            transition: opacity 400ms ease-out;
+                        }
+                    }
+                }
+            }
         }
     }
 }

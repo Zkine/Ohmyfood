@@ -292,13 +292,11 @@
         height: 175px;
 
         &__nom {
-            width: 60%;
             font-weight: 900;
             margin-left: 10px;
             margin-top: 10px;
 
             &__lieu {
-                width: 50%;
                 margin-left: 10px;
                 margin-top: 5px;
 
@@ -452,5 +450,45 @@
         width: 100%;
         margin: 0;
     }
-
 }
+
+@media screen and (max-width: 320px) {
+
+    .cadre {
+    
+        &__filtre {
+            font-size: 0.9rem;
+            margin: 15px 15px 15px 0;
+        
+            & > .fa-solid {
+                margin-left: 30px;
+                margin-right: 10px;
+                color: gray;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .article_restaurant {
+
+        &__img {
+    
+            &__nom {
+    
+                &__lieu {
+    
+                    &__checkbox {
+    
+                        &__label {
+    
+                            & > .fa-regular {
+                                right: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
